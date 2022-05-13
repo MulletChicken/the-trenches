@@ -17,6 +17,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, mySprite, 200, 0)
+    pause(2000)
 })
 let projectile: Sprite = null
 let mySprite: Sprite = null
