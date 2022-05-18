@@ -230,7 +230,7 @@ mySprite,
 100,
 true
 )
-Enemies.setPosition(146, 43)
+Enemies.setPosition(127, 55)
 controller.moveSprite(mySprite, 100, 100)
 mySprite.setPosition(18, 36)
 mySprite.setStayInScreen(true)
