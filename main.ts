@@ -33,7 +33,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    pause(710)
+    pause(500)
     projectile = sprites.createProjectileFromSprite(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -52,7 +52,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, mySprite, 200, 0)
-    pause(1000)
+    pause(200)
 })
 controller.down.onEvent(ControllerButtonEvent.Released, function () {
     animation.runImageAnimation(
@@ -292,8 +292,16 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    Enemies.setFlag(SpriteFlag.Invisible, true)
+    pause(1000)
+    Enemies.setFlag(SpriteFlag.Invisible, false)
+})
 let projectile: Sprite = null
+let Enemies: Sprite = null
 let mySprite: Sprite = null
+info.setLife(1)
 scene.setBackgroundImage(img`
     777777777777777777777eeeeeeeee77777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777eee77777777777777777777777777
     777777777777777777777eeeeeeeeeee77777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777eeeeee777777777777777777777777
@@ -443,7 +451,7 @@ mySprite = sprites.create(img`
     .........................
     .........................
     `, SpriteKind.Player)
-let Enemies = sprites.create(img`
+Enemies = sprites.create(img`
     .........................
     ..........22222..........
     .........ffffff..........
@@ -474,3 +482,4 @@ Enemies.setPosition(127, 55)
 controller.moveSprite(mySprite, 100, 100)
 mySprite.setPosition(18, 36)
 mySprite.setStayInScreen(true)
+Enemies.follow(mySprite, 10)
