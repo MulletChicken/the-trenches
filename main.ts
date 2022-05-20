@@ -52,7 +52,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, mySprite, 200, 0)
-    pause(200)
+    pause(2000)
 })
 controller.down.onEvent(ControllerButtonEvent.Released, function () {
     animation.runImageAnimation(
