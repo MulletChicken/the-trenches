@@ -395,5 +395,3 @@ Enemies = sprites.create(img`
 Enemies.setPosition(127, 55)
 controller.moveSprite(mySprite, 100, 100)
 mySprite.setPosition(18, 36)
-mySprite.setStayInScreen(true)
-Enemies.follow(mySprite, 10)
