@@ -321,7 +321,6 @@ sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
         .........................
         `, SpriteKind.Enemy)
     Enemies.setPosition(127, randint(0, scene.screenHeight()))
-    Enemies.follow(mySprite, 10)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprite.destroy()
