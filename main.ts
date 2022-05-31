@@ -332,6 +332,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     pause(1000)
     Enemies.setFlag(SpriteFlag.Invisible, false)
 })
+let projectile2: Sprite = null
 let projectile: Sprite = null
 let Enemies: Sprite = null
 let mySprite: Sprite = null
@@ -394,3 +395,25 @@ Enemies = sprites.create(img`
 Enemies.setPosition(127, 55)
 controller.moveSprite(mySprite, 100, 100)
 mySprite.setPosition(18, 36)
+game.onUpdateInterval(1000, function () {
+    pause(500)
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f . . . . . . . . 
+        . . . . . f b b f . . . . . . . 
+        . . . . f b b b b f . . . . . . 
+        . . . . f b b b b f . . . . . . 
+        . . . . . f b b f . . . . . . . 
+        . . . . . . f f . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, Enemies, -200, 0)
+    pause(2000)
+})
