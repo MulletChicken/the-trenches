@@ -337,7 +337,7 @@ let projectile: Sprite = null
 let Enemies: Sprite = null
 let mySprite: Sprite = null
 info.setLife(1)
-tiles.setCurrentTilemap(tilemap`level1`)
+tiles.setCurrentTilemap(tilemap`level3`)
 mySprite = sprites.create(img`
     .........................
     .........................
