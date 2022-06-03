@@ -1,3 +1,6 @@
+namespace SpriteKind {
+    export const Projectile2 = SpriteKind.create()
+}
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -396,7 +399,6 @@ Enemies.setPosition(127, 55)
 controller.moveSprite(mySprite, 100, 100)
 mySprite.setPosition(18, 36)
 game.onUpdateInterval(1000, function () {
-    pause(500)
     projectile2 = sprites.createProjectileFromSprite(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -415,5 +417,26 @@ game.onUpdateInterval(1000, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, Enemies, -200, 0)
-    pause(2000)
+    projectile2.x = projectile2.x - 10
+})
+game.onUpdateInterval(1000, function () {
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f . . . . . . . . 
+        . . . . . f b b f . . . . . . . 
+        . . . . f b b b b f . . . . . . 
+        . . . . f b b b b f . . . . . . 
+        . . . . . f b b f . . . . . . . 
+        . . . . . . f f . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, mySprite, -200, 0)
+    projectile2.x = projectile2.x - 10
 })
