@@ -437,6 +437,6 @@ game.onUpdateInterval(1000, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        `, mySprite, -200, 0)
+        `, mySprite, 200, 0)
     projectile2.x = projectile2.x - 10
 })
