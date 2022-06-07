@@ -404,6 +404,8 @@ Enemies = sprites.create(img`
 Enemies.setPosition(127, 55)
 controller.moveSprite(mySprite, 100, 100)
 mySprite.setPosition(18, 36)
+Enemies.setVelocity(0, 50)
+Enemies.setBounceOnWall(true)
 game.onUpdateInterval(1000, function () {
     projectile2 = sprites.createProjectileFromSprite(img`
         . . . . . . . . . . . . . . . . 
