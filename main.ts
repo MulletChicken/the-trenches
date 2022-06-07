@@ -37,7 +37,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     pause(500)
-    projectile = sprites.createProjectileFromSprite(img`
+    projectile2 = sprites.createProjectileFromSprite(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -55,7 +55,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, mySprite, 200, 0)
+    projectile2.x = projectile2.x + 17
     pause(2000)
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
+    sprite.destroy()
+    otherSprite.destroy()
+    game.over(false)
 })
 controller.down.onEvent(ControllerButtonEvent.Released, function () {
     animation.runImageAnimation(
@@ -328,6 +334,7 @@ sprites.onDestroyed(SpriteKind.Enemy, function (sprite) {
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprite.destroy()
     otherSprite.destroy()
+    game.over(true)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
@@ -336,7 +343,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     Enemies.setFlag(SpriteFlag.Invisible, false)
 })
 let projectile2: Sprite = null
-let projectile: Sprite = null
 let Enemies: Sprite = null
 let mySprite: Sprite = null
 info.setLife(1)
@@ -417,26 +423,5 @@ game.onUpdateInterval(1000, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, Enemies, -200, 0)
-    projectile2.x = projectile2.x - 10
-})
-game.onUpdateInterval(1000, function () {
-    projectile2 = sprites.createProjectileFromSprite(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . f f . . . . . . . . 
-        . . . . . f b b f . . . . . . . 
-        . . . . f b b b b f . . . . . . 
-        . . . . f b b b b f . . . . . . 
-        . . . . . f b b f . . . . . . . 
-        . . . . . . f f . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, mySprite, 200, 0)
     projectile2.x = projectile2.x - 10
 })
